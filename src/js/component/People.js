@@ -1,62 +1,51 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+
+// import {LearnMore} from ""
 
 export const People = () => {
-  let images = "https://starwars-visualguide.com/assets/img/characters";
-  const { store, actions } = useContext(Context);
-  console.log(store.list.results);
-  return (
-    <div class="container-fluid py-2">
-      <div class="d-flex flex-row flex-nowrap overflow-auto">
-        {store.list.results &&
-          store.list.results.map((list, index) => {
-            return (
-              <div
-                key={index}
-                // className="card w-100 p-3"
-                style={{
-                  height: "22rem",
-                  width: "17rem",
-                  display: "inline-block",
-                  padding: "10px",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              >
-                <div>
-                  <img
-                    src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
-                    className="img-fluid"
-                  />
-                  <a href="#!">
-                    <div></div>
-                  </a>
-                </div>
+  const images = "https://starwars-visualguide.com/assets/img/characters/";
 
-                <div className="card-body">
-                  <h5 className="card-title"> {list.name}</h5>
-                  <p className="card-text">
-                    {/* THIS IS WHERE WE WILL PASS THE DESCRIPTION */}
-                    <span key={index} className="boxtype">
-                      {/* we are trying to enter in a picture here using the split function */}
-                      {/* {list.split(images.index)} */}
-                    </span>
-                  </p>
-                  <button type="button" className="btn btn-primary">
-                    Button
-                  </button>
-                  <button>
-                    <i
-                      class="border border-warning fa fa-heart"
-                      aria-hidden="true"
-                    ></i>
-                  </button>
-                </div>
+  // const par = list.results.uid;
+  const { store, actions } = useContext(Context);
+  console.log(store);
+  return (
+    <div className="row">
+      {store.list.results &&
+        store.list.results.map((list, index) => {
+          return (
+            <div key={index} className="card" style={{ width: "16rem" }}>
+              <img
+                src={images + list.uid + ".jpg"}
+                className="card-img-top"
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title">{list.name}</h5>
+                <p className="card-text">{list.url}</p>
+                <Link
+                  to={"/Details/" + list.uid}
+                  href="#"
+                  className="btn btn-primary"
+                  style={{ display: "inline-block" }}
+                >
+                  {/* this button has to be connecterd to the next page */}
+                  Learn More
+                </Link>
+                <button
+                  to="/Details"
+                  // href="#"
+                  className="btn btn-primary"
+                  style={{ display: "inline-block" }}
+                >
+                  {/* this heart has to be connected to the favourites and dropdown */}
+                  <i className="fa fa-heart" aria-hidden="true"></i>
+                </button>
               </div>
-            );
-          })}
-      </div>
-      )
+            </div>
+          );
+        })}
     </div>
   );
 };
