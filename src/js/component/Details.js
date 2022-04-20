@@ -7,7 +7,7 @@ export const Details = () => {
   return (
     <>
       {store.singleCharacter.result ? (
-        <div className="row">
+        <div className="row" style={{ width: "16rem" }}>
           <div>
             <img
               src={store.img + store.singleCharacter.result.uid + ".jpg"}
