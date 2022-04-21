@@ -37,7 +37,10 @@ export const People = () => {
                   // href="#"
                   className="btn btn-primary"
                   style={{ display: "inline-block" }}
-                  onChange={(e) => addingFavourites(e.target.value)}
+                  onClick={
+                    (ok) => actions.addingFavourites(ok)
+                    // <h1>"clicked"</h1>
+                  }
                 >
                   {/* this heart has to be connected to the favourites and dropdown */}
                   <i className="fa fa-heart" aria-hidden="true"></i>

@@ -28,13 +28,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((err) => console.error(err, error));
       },
       addingFavourites: (name) => {
-        const store = getStore;
-        if (store.favourites.unshift((car) => car.uid != name.uid)) {
-          setStore({ favourites: [...store.favourites, store.name] });
-          // const fav = (index) => {
-          //   const par = favourites.push((result, i) => index !== i);
-          //   setFavourites(par);
-        }
+        let store = getStore;
+        setStore({ favourites: [...favourites, name] });
+
+        // setStore({ favourites: [...store.favourites, store.name] });
+
+        console.log("this is working");
       },
     },
   };
