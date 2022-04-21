@@ -38,7 +38,7 @@ export const People = () => {
                   className="btn btn-primary"
                   style={{ display: "inline-block" }}
                   onClick={
-                    (ok) => actions.addingFavourites(ok)
+                    () => actions.addingFavourites(list)
                     // <h1>"clicked"</h1>
                   }
                 >

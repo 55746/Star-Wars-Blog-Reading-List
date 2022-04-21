@@ -28,8 +28,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((err) => console.error(err, error));
       },
       addingFavourites: (name) => {
-        let store = getStore;
-        setStore({ favourites: [...favourites, name] });
+        let store = getStore();
+        setStore({ favourites: [...store.favourites, name] });
 
         // setStore({ favourites: [...store.favourites, store.name] });
 
