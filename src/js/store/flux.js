@@ -35,6 +35,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         console.log("this is working");
       },
+      deletes: (index) => {
+        let par = getStore().favourites.filter((result, i) => index !== i);
+        setStore({ favourites: par });
+      },
     },
   };
 };

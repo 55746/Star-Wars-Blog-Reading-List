@@ -5,49 +5,38 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-  
-  return(
-  <>
-  ({store.favoutites.name ? (
-    <nav className="navbar navbar-light bg-light mb-3">
-    <Link to="/">
-    <span className="navbar-brand mb-0 h1">React Boilerplate</span>
-      </Link>
-      <div className="ml-auto">
-        <Link to="/demo">
-        <div className="dropdown">
-        <a
+
+  return (
+    <div className="dropdown">
+      <a
         className="btn btn-secondary dropdown-toggle"
+        href="#"
         role="button"
         id="dropdownMenuLink"
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        ></a>
-        
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li>
-        <a className="dropdown-item" href="#">
-        {store.favourites.name}
-        </a>
-              </li>
-              <li>
+      >
+        Dropdown link
+      </a>
+      <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {store.favourites &&
+          store.favourites.map((list, index) => {
+            return (
+              <li key={index} className="card" style={{ width: "16rem" }}>
                 <a className="dropdown-item" href="#">
-                  Another action
+                  {list.name}
                 </a>
+                <button
+                  onClick={() => {
+                    actions.deletes(index);
+                  }}
+                >
+                  X
+                </button>
               </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-            </ul>
-            </div>
-            </Link>
-            </div>
-            ) : "loading"
-  </nav>
-  )
-  </>
-  )}
-
-          
+            );
+          })}
+      </ul>
+    </div>
+  );
+};

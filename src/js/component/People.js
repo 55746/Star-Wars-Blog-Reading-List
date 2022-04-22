@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import getState from "../store/flux";
 
 // import {LearnMore} from ""
 
@@ -37,10 +38,14 @@ export const People = () => {
                   // href="#"
                   className="btn btn-primary"
                   style={{ display: "inline-block" }}
-                  onClick={
-                    () => actions.addingFavourites(list)
+                  onClick={() => {
+                    if (store.favourites.includes(list)) {
+                      return alert("You cant do that Jimbo!");
+                    } else {
+                      actions.addingFavourites(list);
+                    }
                     // <h1>"clicked"</h1>
-                  }
+                  }}
                 >
                   {/* this heart has to be connected to the favourites and dropdown */}
                   <i className="fa fa-heart" aria-hidden="true"></i>
