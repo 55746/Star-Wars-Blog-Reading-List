@@ -10,11 +10,15 @@ export const People = () => {
   const { store, actions } = useContext(Context);
   console.log(store);
   return (
-    <div className="row">
+    <div className="row" style={{ justifyContent: "center" }}>
       {store.list.results &&
         store.list.results.map((list, index) => {
           return (
-            <div key={index} className="card" style={{ width: "16rem" }}>
+            <div
+              key={index}
+              className="card"
+              style={{ width: "16rem", margin: "5px" }}
+            >
               <img
                 src={store.img + list.uid + ".jpg"}
                 className="card-img-top"
@@ -22,9 +26,9 @@ export const People = () => {
               />
               <div className="card-body">
                 <h5 className="card-title">{list.name}</h5>
-                <p className="card-text">{list.url}</p>
                 <Link to={"/Details/" + list.uid}>
                   <button
+                    style={{ float: "right" }}
                     onClick={() => {
                       actions.singleCharacter(list.uid);
                     }}

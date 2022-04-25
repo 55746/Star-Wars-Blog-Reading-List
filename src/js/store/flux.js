@@ -5,6 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       img: "https://starwars-visualguide.com/assets/img/characters/",
       singleCharacter: {},
       favourites: [],
+      randomText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tortor in sem volutpat posuere sed sit amet velit. Donec id vestibulum sapien. Suspendisse nibh turpis, volutpat ac feugiat ut, posuere ultrices risus. Praesent iaculis eu leo vitae ullamcorper. Quisque dictum volutpat odio at viverra. Donec dignissim non nisi non sodales. Curabitur vulputate lorem eget nibh porta semper.",
     },
     actions: {
       getData: () => {
