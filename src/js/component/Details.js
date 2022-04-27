@@ -22,7 +22,9 @@ export const Details = () => {
                   {store.singleCharacter.result.properties.name}
                 </h5>
                 <p className="card-text">
-                  <div className="randomText">{store.randomText}</div>
+                  <div className="randomText">
+                    {store.singleCharacter.result.description}
+                  </div>
                   <div
                     className="row g-2 g-lg-3"
                     style={{ position: "absolute", bottom: "0px" }}
@@ -63,9 +65,6 @@ export const Details = () => {
                       </div>
                     </div>
                   </div>
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">Last updated 3 mins ago</small>
                 </p>
               </div>
             </div>
